@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Financial Literacy Platform - Documentation</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    :root {
+      --primary-color: #5046e5;
+      --secondary-color: #10b981;
+      --accent-color: #f59e0b;
+      --text-color: #1f2937;
+      --text-light: #6b7280;
+      --bg-color: #ffffff;
+      --bg-light: #f9fafb;
+      --border-color: #e5e7eb;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-light);
+      padding: 0;
+      margin: 0;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    /* Header Styles */
+    .header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #6366f1 100%);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .header .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      font-weight: 300;
+    }
+    
+    /* Navigation */
+    .nav-container {
+      background: white;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      margin-bottom: 3rem;
+    }
+    
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      align-items: center;
+    }
+    
+    .nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .nav a:hover {
+      background: var(--bg-light);
+      color: var(--primary-color);
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    h1 { font-size: 2.5rem; }
+    h2 { 
+      font-size: 2rem; 
+      margin-top: 4rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+    h3 { 
+      font-size: 1.5rem; 
+      color: var(--primary-color);
+      margin-top: 3rem;
+    }
+    h4 { font-size: 1.25rem; }
+    
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    
+    /* Links */
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+    
+    /* Lists */
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+      color: var(--text-light);
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.8;
+    }
+    
+    /* Feature List */
+    ul li strong {
+      color: var(--text-color);
+      font-weight: 600;
+    }
+    
+    /* Cards */
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Images */
+    figure {
+      margin: 2rem 0;
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    figure img:hover {
+      transform: scale(1.02);
+      cursor: zoom-in;
+    }
+    
+    figcaption {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    
+    /* Code Blocks */
+    pre {
+      background: #1f2937;
+      color: #e5e7eb;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin-bottom: 1.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      box-shadow: var(--shadow);
+    }
+    
+    code {
+      background: var(--bg-light);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+    }
+    
+    /* Author Section */
+    #about-the-creator {
+      background: linear-gradient(135deg, var(--bg-light) 0%, #f3f4f6 100%);
+      border-radius: 1rem;
+      padding: 3rem;
+      margin: 3rem 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    
+    #about-the-creator h2 {
+      border: none;
+      color: var(--primary-color);
+    }
+    
+    #about-the-creator strong {
+      font-size: 1.25rem;
+      color: var(--text-color);
+    }
+    
+    #about-the-creator em {
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+    
+    /* Table of Contents */
+    #table-of-contents + ol {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+    }
+    
+    #table-of-contents + ol li {
+      margin-bottom: 0.75rem;
+    }
+    
+    #table-of-contents + ol a {
+      font-weight: 500;
+    }
+    
+    /* Footer */
+    hr:last-of-type {
+      margin-top: 4rem;
+      border: none;
+      border-top: 2px solid var(--border-color);
+    }
+    
+    body > p:last-child {
+      text-align: center;
+      background: white;
+      padding: 3rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      margin: 3rem 2rem 2rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .header {
+        padding: 2rem 0;
+      }
+      
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.25rem; }
+      
+      .nav {
+        padding: 1rem;
+        gap: 1rem;
+      }
+      
+      .nav a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+      }
+      
+      figure {
+        padding: 1rem;
+      }
+      
+      #about-the-creator {
+        padding: 2rem 1rem;
+      }
+    }
+    
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+      }
+      
+      .nav-container {
+        display: none;
+      }
+      
+      .card, figure {
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+      }
+      
+      figure {
+        page-break-inside: avoid;
+      }
+    }
+    
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--primary-color);
+      color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      opacity: 0;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+    }
+    
+    .back-to-top:hover {
+      background: var(--accent-color);
+      transform: translateY(-4px);
+    }
+    
+    /* Section Styling */
+    section {
+      margin-bottom: 4rem;
+    }
+    
+    /* Key Features Grid */
+    #key-features + ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+    
+    #key-features + ul li {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    #key-features + ul li:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Badge Examples Grid */
+    #c-badge-criteria-examples + ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+    
+    #c-badge-criteria-examples + ul li {
+      background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-color);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    #c-badge-criteria-examples + ul li:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>📚 Financial Literacy Platform</h1>
+    <div class="subtitle">Comprehensive Documentation</div>
+  </div>
+  
+  <!-- Navigation -->
+  <div class="nav-container">
+    <nav class="nav">
+      <a href="#executive-summary">Overview</a>
+      <a href="#technical-architecture">Architecture</a>
+      <a href="#user-journeys">User Journeys</a>
+      <a href="#database-schema">Database</a>
+      <a href="#uiux-design">UI/UX Design</a>
+      <a href="#api-structure">API</a>
+      <a href="#gamification-system">Gamification</a>
+      <a href="#implementation-roadmap">Roadmap</a>
+    </nav>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <h2 id="table-of-contents">Table of Contents</h2>
+    <ol type="1">
+      <li><a href="#executive-summary">Executive Summary</a></li>
+      <li><a href="#about-the-creator">About the Creator</a></li>
+      <li><a href="#project-overview">Project Overview</a></li>
+      <li><a href="#technical-architecture">Technical Architecture</a></li>
+      <li><a href="#user-journeys">User Journeys</a></li>
+      <li><a href="#database-schema">Database Schema</a></li>
+      <li><a href="#uiux-design">UI/UX Design</a></li>
+      <li><a href="#api-structure">API Structure</a></li>
+      <li><a href="#gamification-system">Gamification System</a></li>
+      <li><a href="#file-structure">File Structure</a></li>
+      <li><a href="#implementation-roadmap">Implementation Roadmap</a></li>
+    </ol>
+    
+    <hr />
+    
+    <section>
+      <h2 id="executive-summary">1. Executive Summary</h2>
+      <div class="card">
+        <p>The Financial Literacy Platform is an innovative, gamified educational system designed to teach financial concepts to school students through interactive, level-based learning. The platform serves three primary user types - Students, Teachers, and Parents - each with tailored interfaces and functionalities.</p>
+        
+        <h3 id="key-features">Key Features</h3>
+        <ul>
+          <li>Gamified learning experience with badges, streaks, and rewards</li>
+          <li>Progressive level-based curriculum with unlock mechanisms</li>
+          <li>Multi-user support (Students, Teachers, Parents)</li>
+          <li>Real-time progress tracking</li>
+          <li>Teacher-managed authentication system</li>
+          <li>Responsive design for all devices</li>
+        </ul>
+      </div>
+    </section>
+    
+    <hr />
+    
+    <section id="about-the-creator">
+      <h2>2. About the Creator</h2>
+      <p><strong>Aditya Tripathi</strong><br />
+      <em>Student at SP Jain School of Global Management</em></p>
+      <p>I am a passionate technologist and education enthusiast currently pursuing my studies at SP Jain School of Global Management.</p>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="project-overview">3. Project Overview</h2>
+      <h3 id="vision-statement">3.1 Vision Statement</h3>
+      <p>To create an engaging, accessible platform that transforms financial education for school students through gamification, making complex financial concepts simple, fun, and memorable.</p>
+      
+      <h3 id="core-learning-modules">3.2 Core Learning Modules</h3>
+      <figure>
+        <img src="Photos/Core%20Learning%20Modules.png" title="Core Learning Modules" alt="Core Learning Modules" />
+        <figcaption aria-hidden="true">Core Learning Modules</figcaption>
+      </figure>
+      
+      <h3 id="user-roles-overview">3.3 User Roles Overview</h3>
+      <figure>
+        <img src="Photos/User%20Eco%20System.png" title="User Roles Overview" alt="User Roles Overview" />
+        <figcaption aria-hidden="true">User Roles Overview</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="technical-architecture">4. Technical Architecture</h2>
+      <h3 id="system-architecture-overview">4.1 System Architecture Overview</h3>
+      <figure>
+        <img src="Photos/System%20Architecture%20Overview.png" title="System Architecture Overview" alt="System Architecture Overview" />
+        <figcaption aria-hidden="true">System Architecture Overview</figcaption>
+      </figure>
+      
+      <h3 id="technology-stack-details">4.2 Technology Stack Details</h3>
+      <figure>
+        <img src="Photos/Technology%20Stack%20Details.png" title="Technology Stack Details" alt="Technology Stack Details" />
+        <figcaption aria-hidden="true">Technology Stack Details</figcaption>
+      </figure>
+      
+      <h3 id="authentication-flow">4.3 Authentication Flow</h3>
+      <figure>
+        <img src="Photos/Authentication%20Flow.png" title="Authentication Flow" alt="Authentication Flow" />
+        <figcaption aria-hidden="true">Authentication Flow</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="user-journeys">5. User Journeys</h2>
+      <h3 id="complete-student-journey">5.1 Complete Student Journey</h3>
+      <figure>
+        <img src="Photos/Complete%20Student%20Journey.png" title="Complete Student Journey" alt="Complete Student Journey" />
+        <figcaption aria-hidden="true">Complete Student Journey</figcaption>
+      </figure>
+      
+      <h3 id="teacher-workflow">5.2 Teacher Workflow</h3>
+      <figure>
+        <img src="Photos/Teacher%20Workflow.png" title="Teacher Workflow" alt="Teacher Workflow" />
+        <figcaption aria-hidden="true">Teacher Workflow</figcaption>
+      </figure>
+      
+      <h3 id="parent-engagement-flow">5.3 Parent Engagement Flow</h3>
+      <figure>
+        <img src="Photos/Parent%20Engagement%20Flow.png" title="Parent Engagement Flow" alt="Parent Engagement Flow" />
+        <figcaption aria-hidden="true">Parent Engagement Flow</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="database-schema">6. Database Schema</h2>
+      <h3 id="complete-entity-relationship-diagram">6.1 Complete Entity Relationship Diagram</h3>
+      <figure>
+        <img src="Photos/Complete%20Entity%20Relationship%20Diagram.png" title="Complete Entity Relationship Diagram" alt="Complete Entity Relationship Diagram" />
+        <figcaption aria-hidden="true">Complete Entity Relationship Diagram</figcaption>
+      </figure>
+      
+      <h3 id="core-tables-structure">6.2 Core Tables Structure</h3>
+      <figure>
+        <img src="Photos/Core%20Table%20Structures.png" title="Core Tables Structure" alt="Core Tables Structure" />
+        <figcaption aria-hidden="true">Core Tables Structure</figcaption>
+      </figure>
+      
+      <h3 id="gamification-tables">6.3 Gamification Tables</h3>
+      <figure>
+        <img src="Photos/Gamification%20Tables.png" title="Gamification Tables" alt="Gamification Tables" />
+        <figcaption aria-hidden="true">Gamification Tables</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="uiux-design">7. UI/UX Design</h2>
+      <h3 id="design-system-overview">7.1 Design System Overview</h3>
+      <figure>
+        <img src="Photos/Design%20System%20Overview.png" title="Design System Overview" alt="Design System Overview" />
+        <figcaption aria-hidden="true">Design System Overview</figcaption>
+      </figure>
+      
+      <h3 id="student-interface-pages">7.2 Student Interface Pages</h3>
+      
+      <h4 id="student-login-page">7.2.1 Student Login Page</h4>
+      <figure>
+        <img src="Photos/Student%20login.png" title="Student Login Page" alt="Student Login Page" />
+        <figcaption aria-hidden="true">Student Login Page</figcaption>
+      </figure>
+      <p><strong>Design Elements:</strong></p>
+      <ul>
+        <li>Simple username/password fields</li>
+        <li>Colorful, animated background</li>
+        <li>School branding</li>
+        <li>"Ask Teacher for Help" link</li>
+        <li>No registration option (teacher-managed)</li>
+      </ul>
+      
+      <h4 id="student-dashboard">7.2.2 Student Dashboard</h4>
+      <figure>
+        <img src="Photos/student%20dashboard%20photo.png" title="Student Dashboard UI" alt="Student Dashboard UI" />
+        <figcaption aria-hidden="true">Student Dashboard UI</figcaption>
+      </figure>
+      <figure>
+        <img src="Photos/Student%20Dashboard.png" title="Student Dashboard" alt="Student Dashboard" />
+        <figcaption aria-hidden="true">Student Dashboard</figcaption>
+      </figure>
+      
+      <h4 id="learning-page">7.2.3 Learning Page</h4>
+      <figure>
+        <img src="Photos/Learnin%20Page.png" title="Learning Page" alt="Learning Page" />
+        <figcaption aria-hidden="true">Learning Page</figcaption>
+      </figure>
+      <p><strong>Content Types Supported:</strong></p>
+      <ul>
+        <li>YouTube video embeds</li>
+        <li>Document viewers</li>
+        <li>PPT presentations</li>
+        <li>Personal/instructor videos</li>
+        <li>Interactive activities</li>
+      </ul>
+      
+      <h4 id="quiz-page">7.2.4 Quiz Page</h4>
+      <figure>
+        <img src="Photos/Quiz%20Page%20copy.png" title="Quiz Page" alt="Quiz Page" />
+        <figcaption aria-hidden="true">Quiz Page</figcaption>
+      </figure>
+      <figure>
+        <img src="Photos/Quiz%20Page.png" title="Quiz Page" alt="Quiz Page" />
+        <figcaption aria-hidden="true">Quiz Page</figcaption>
+      </figure>
+      
+      <h3 id="teacher-interface-pages">7.3 Teacher Interface Pages</h3>
+      
+      <h4 id="teacher-dashboard">7.3.1 Teacher Dashboard</h4>
+      <figure>
+        <img src="Photos/Teacher%20Dashboard&#39;.png" title="Teacher Dashboard" alt="Teacher Dashboard" />
+        <figcaption aria-hidden="true">Teacher Dashboard</figcaption>
+      </figure>
+      <figure>
+        <img src="Photos/Teacher%20Dashboard.png" title="Teacher Dashboard" alt="Teacher Dashboard" />
+        <figcaption aria-hidden="true">Teacher Dashboard</figcaption>
+      </figure>
+      
+      <h4 id="class-management">7.3.2 Class Management</h4>
+      <figure>
+        <img src="Photos/Class%20anagement.png" title="Class Management" alt="Class Management" />
+        <figcaption aria-hidden="true">Class Management</figcaption>
+      </figure>
+      <p><strong>Features:</strong></p>
+      <ul>
+        <li>Sortable student table</li>
+        <li>Progress indicators</li>
+        <li>Bulk actions toolbar</li>
+        <li>Individual student details</li>
+        <li>Password reset options</li>
+      </ul>
+      
+      <h3 id="parent-interface-pages">7.4 Parent Interface Pages</h3>
+      
+      <h4 id="parent-dashboard">7.4.1 Parent Dashboard</h4>
+      <figure>
+        <img src="Photos/Parent%20Dashboard%20copy.png" title="Parent Dashboard" alt="Parent Dashboard" />
+        <figcaption aria-hidden="true">Parent Dashboard</figcaption>
+      </figure>
+      <figure>
+        <img src="Photos/Parent%20Dashboard.png" title="Parent Dashboard" alt="Parent Dashboard" />
+        <figcaption aria-hidden="true">Parent Dashboard</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="api-structure">8. API Structure</h2>
+      <h3 id="api-endpoint-organization">8.1 API Endpoint Organization</h3>
+      <figure>
+        <img src="Photos/API%20Endpoint%20Organization.png" title="API Endpoint Organization" alt="API Endpoint Organization" />
+        <figcaption aria-hidden="true">API Endpoint Organization</figcaption>
+      </figure>
+      
+      <h3 id="data-flow-example">8.2 Data Flow Example</h3>
+      <figure>
+        <img src="Photos/Data%20Flow%20Example.png" title="Data Flow Example" alt="Data Flow Example" />
+        <figcaption aria-hidden="true">Data Flow Example</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="gamification-system">9. Gamification System</h2>
+      <h3 id="gamification-elements">9.1 Gamification Elements</h3>
+      <figure>
+        <img src="Photos/Gamification%20Elements.png" title="Gamification Elements" alt="Gamification Elements" />
+        <figcaption aria-hidden="true">Gamification Elements</figcaption>
+      </figure>
+      
+      <h3 id="streak-calculation-logic">9.2 Streak Calculation Logic</h3>
+      <figure>
+        <img src="Photos/Streak%20Calculation%20Logic.png" title="Streak Calculation Logic" alt="Streak Calculation Logic" />
+        <figcaption aria-hidden="true">Streak Calculation Logic</figcaption>
+      </figure>
+      
+      <h3 id="badge-award-flow">9.3 Badge Award Flow</h3>
+      <figure>
+        <img src="Photos/Badge%20Award%20Flow.png" title="Badge Award Flow" alt="Badge Award Flow" />
+        <figcaption aria-hidden="true">Badge Award Flow</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="file-structure">10. File Structure</h2>
+      <h3 id="complete-project-structure">10.1 Complete Project Structure</h3>
+      <figure>
+        <img src="Photos/Complete%20Project%20Structure.png" title="Complete Project Structure" alt="Complete Project Structure" />
+        <figcaption aria-hidden="true">Complete Project Structure</figcaption>
+      </figure>
+      
+      <h3 id="frontend-component-organization">10.2 Frontend Component Organization</h3>
+      <pre><code>frontend/src/
+├── components/
+│   ├── common/
+│   │   ├── Header.jsx
+│   │   ├── Button.jsx
+│   │   ├── Card.jsx
+│   │   ├── Modal.jsx
+│   │   └── ProgressBar.jsx
+│   ├── student/
+│   │   ├── Dashboard.jsx
+│   │   ├── LearningPath.jsx
+│   │   ├── LevelCard.jsx
+│   │   └── BadgeDisplay.jsx
+│   ├── teacher/
+│   │   ├── ClassOverview.jsx
+│   │   ├── StudentTable.jsx
+│   │   └── AnalyticsChart.jsx
+│   └── parent/
+│       ├── ChildProgress.jsx
+│       └── ActivityFeed.jsx</code></pre>
+      
+      <h3 id="backend-api-structure">10.3 Backend API Structure</h3>
+      <pre><code>backend/app/
+├── api/v1/
+│   ├── endpoints/
+│   │   ├── auth.py
+│   │   ├── students.py
+│   │   ├── teachers.py
+│   │   ├── parents.py
+│   │   ├── courses.py
+│   │   └── gamification.py
+├── models/
+│   ├── user.py
+│   ├── course.py
+│   ├── progress.py
+│   └── gamification.py
+├── services/
+│   ├── auth_service.py
+│   ├── email_service.py
+│   └── gamification_service.py
+└── core/
+    ├── config.py
+    └── security.py</code></pre>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="implementation-roadmap">11. Implementation Roadmap</h2>
+      <h3 id="development-phases">11.1 Development Phases</h3>
+      <figure>
+        <img src="Photos/Development%20Phases.png" title="Development Phases" alt="Development Phases" />
+        <figcaption aria-hidden="true">Development Phases</figcaption>
+      </figure>
+      
+      <h3 id="mvp-features-phase-1">11.2 MVP Features (Phase 1)</h3>
+      <figure>
+        <img src="Photos/MVP%20Features.png" title="MVP Features" alt="MVP Features" />
+        <figcaption aria-hidden="true">MVP Features</figcaption>
+      </figure>
+      
+      <h3 id="success-metrics">11.3 Success Metrics</h3>
+      <figure>
+        <img src="Photos/Success%20Metrics.png" title="Success Metrics" alt="Success Metrics" />
+        <figcaption aria-hidden="true">Success Metrics</figcaption>
+      </figure>
+    </section>
+    
+    <hr />
+    
+    <section>
+      <h2 id="appendices">Appendices</h2>
+      
+      <div class="card">
+        <h3 id="a-content-types-supported">A. Content Types Supported</h3>
+        <ol type="1">
+          <li><strong>Video Content</strong>
+            <ul>
+              <li>YouTube embeds</li>
+              <li>Uploaded instructor videos</li>
+              <li>Maximum 10 minutes per video</li>
+            </ul>
+          </li>
+          <li><strong>Document Content</strong>
+            <ul>
+              <li>PDF documents</li>
+              <li>Interactive worksheets</li>
+              <li>Infographics</li>
+            </ul>
+          </li>
+          <li><strong>Presentation Content</strong>
+            <ul>
+              <li>PowerPoint presentations</li>
+              <li>Google Slides embeds</li>
+              <li>Interactive slideshows</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      
+      <div class="card">
+        <h3 id="b-quiz-question-types">B. Quiz Question Types</h3>
+        <ul>
+          <li>Multiple choice (4 options)</li>
+          <li>True/False</li>
+          <li>Fill in the blanks</li>
+          <li>Matching pairs</li>
+          <li>Simple calculations</li>
+        </ul>
+      </div>
+      
+      <div class="card">
+        <h3 id="c-badge-criteria-examples">C. Badge Criteria Examples</h3>
+        <ul>
+          <li><strong>First Steps</strong>: Complete first lesson</li>
+          <li><strong>Quiz Master</strong>: Score 100% on any quiz</li>
+          <li><strong>Week Warrior</strong>: 7-day login streak</li>
+          <li><strong>Level Up</strong>: Complete any level</li>
+          <li><strong>Speed Learner</strong>: Complete level in one session</li>
+          <li><strong>Perfect Month</strong>: 30-day streak</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  
+  <hr />
+  
+  <p><em>This documentation represents the complete technical specification for the Financial Literacy Platform based on all discussed requirements and features.</em></p>
+  <p><strong>Version</strong>: 1.0<br />
+  <strong>Author</strong>: Aditya Tripathi</p>
+  
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">↑</a>
+  
+  <script>
+    // Show/hide back to top button
+    window.addEventListener('scroll', function() {
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    // Smooth scroll to top
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Add zoom functionality to images
+    document.querySelectorAll('figure img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function() {
+        if (this.style.transform === 'scale(2)') {
+          this.style.transform = 'scale(1)';
+          this.style.cursor = 'zoom-in';
+          this.style.position = 'static';
+          this.style.zIndex = 'auto';
+        } else {
+          this.style.transform = 'scale(2)';
+          this.style.cursor = 'zoom-out';
+          this.style.position = 'relative';
+          this.style.zIndex = '1000';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
